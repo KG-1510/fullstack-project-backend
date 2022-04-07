@@ -25,4 +25,5 @@ const verifyHeaderToken = () => {
 module.exports = {
   GenerateJWT,
   getUserData,
+  verifyHeaderToken,
 };
