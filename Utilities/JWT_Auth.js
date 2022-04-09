@@ -22,19 +22,19 @@ const getUserData = async (token) => {
   //   return decode.userData;
   // }
 };
-const verifyHeaderToken = () => {
-  const token = req.headers.token;
-  if (token.length > 1) {
-    jwt.verify(token, process.env.TOKEN_SECRET, (err, decode) => {
-      JSON.stringify(decoded.userData);
+// const verifyHeaderToken = () => {
+//   const token = req.headers.token;
+//   if (token.length > 1) {
+//     jwt.verify(token, process.env.TOKEN_SECRET, (err, decode) => {
+//       JSON.stringify(decoded.userData);
 
-      req.headers.userData = decoded.userData;
-      next();
-    });
-  }
-};
+//       req.headers.userData = decoded.userData;
+//       next();
+//     });
+//   }
+// };
 module.exports = {
   GenerateJWT,
   getUserData,
-  verifyHeaderToken,
+  // verifyHeaderToken,
 };
