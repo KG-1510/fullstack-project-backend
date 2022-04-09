@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 const jwt = require('jsonwebtoken');
 
 const GenerateJWT = function (data) {
@@ -14,7 +13,7 @@ const GenerateJWT = function (data) {
 const getUserData = async (token) => {
   console.log(token + 'is the token');
   const passVerified = jwt.verify(token, process.env.TOKEN_SECRET).userData;
-  console.log(passVerified);
+  console.log(passVerified + ' getUserData');
   return passVerified;
 
   //   (err, decode) => {

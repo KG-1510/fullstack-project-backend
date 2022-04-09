@@ -12,14 +12,13 @@ exports.postRegister = async (req, res) => {
   const token = await GenerateJWT(password);
   res.json({ token: token });
   let user;
-  try {
-    const emailExists = await StudentDB.findOne({ name });
-    if (emailExists)
-      return res.send({ status: 400, message: 'Username already exists.' });
-  } catch (err) {
-    res.status(400).send('some error while sending to db');
-  }
-
+  //  try {
+  //    const emailExists = await StudentDB.findOne({ name });
+  //    if (emailExists)
+  //      return res.send({ status: 400, message: 'Username already exists.' });
+  //  } catch (err) {
+  //    res.status(400).send('some error while sending to db');
+  //  }
   user = new StudentDB({
     name,
     email,
