@@ -1,12 +1,11 @@
 const express = require('express');
 const res = require('express/lib/response');
-const StudentData = require('../../Model/StudentData');
+const StudentDB = require('../../Model/StudentData');
 //const Reqemail=req.body.email;
 //save in cookies or body then fetch
 const Fetch = async (email) => {
-  const studentdets = await StudentData.findOne({
-    where: { email },
-  });
-  res.json(studentdets);
+  const data = await StudentDB.findOne({ email });
+  console.log(data);
+  res.send({ data });
 };
 module.exports = Fetch;

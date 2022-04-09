@@ -1,40 +1,34 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const mongoose = require('mongoose');
 
-const sequelize = require('../Utilities/Database');
+const Schema = mongoose.Schema;
 
-const StudentData = sequelize.define('studentdata', {
-  id: {
-    type: DataTypes.STRING,
-    required: true,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true,
-  },
+const StudentData = new Schema({
   name: {
-    type: DataTypes.STRING,
+    type: String,
     required: true,
   },
   email: {
-    type: DataTypes.STRING,
+    type: String,
     required: true,
   },
   password: {
-    type: DataTypes.STRING,
+    type: String,
     required: true,
   },
-  image: {
-    type: DataTypes.STRING,
-  },
-  year: {
-    type: DataTypes.INTEGER,
-    required: true,
-  },
-  branch: {
-    type: DataTypes.STRING,
-    required: true,
-  },
-  spl: {
-    type: DataTypes.STRING,
-  },
+  // image: {
+  //   type: String,
+  // },
+  // year: {
+  //   type: Number,
+  //   required: true,
+  // },
+  // branch: {
+  //   type: String,
+  //   required: true,
+  // },
+  // spl: {
+  //   type: String,
+  //   required: true,
+  // },
 });
-module.exports = StudentData;
+module.exports = mongoose.model('StudentDB', StudentData);

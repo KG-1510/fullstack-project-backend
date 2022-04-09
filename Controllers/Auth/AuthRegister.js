@@ -1,26 +1,37 @@
 const express = require('express');
-const StudentData = require('../../Model/StudentData');
+const StudentDB = require('../../Model/StudentData');
 const { GenerateJWT } = require('../../Utilities/JWT_Auth');
 exports.postRegister = async (req, res) => {
-  const id = req.body.id;
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
-  const image = req.body.image;
-  const year = req.body.year;
-  const branch = req.body.branch;
-  const spl = req.body.spl;
+  // const image = req.body.image;
+  // const year = req.body.year;
+  // const branch = req.body.branch;
+  // const spl = req.body.spl;
   const token = await GenerateJWT(password);
   res.json({ token: token });
+  let user;
+  try {
+    const emailExists = await StudentDB.findOne({ name });
+    if (emailExists)
+      return res.send({ status: 400, message: 'Username already exists.' });
+  } catch (err) {
+    res.status(400).send('some error while sending to db');
+  }
 
-  // await StudentData.create({
-  //   id,
-  //   name,
-  //   email,
-  //   token,
-  //   image,
-  //   year,
-  //   branch,
-  //   spl,
-  // });
+  user = new StudentDB({
+    name,
+    email,
+    password: token,
+    // image,
+    // year,
+    // branch,
+    // spl,
+  });
+  user.save().then(() => {
+    console.log('saved');
+  });
+
+  //console.log(user + 'is the user');
 };
