@@ -2,8 +2,8 @@ const express = require('express');
 const route = express.Router();
 const AuthLogin = require('../Controllers/Auth/AuthLogin');
 const AuthRegister = require('../Controllers/Auth/AuthRegister');
-route.get('/login', AuthLogin);
+route.post('/Login', AuthLogin.postLogin);
 
-route.post('/register', AuthRegister);
+route.post('/Register', AuthRegister.postRegister);
 
 module.exports = route;
