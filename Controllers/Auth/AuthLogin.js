@@ -18,8 +18,8 @@ exports.postLogin = async (req, res) => {
   console.log(password + ' ----P');
   if (passwordRetrieved === password) {
     console.log('same pass');
-    res.send({ message: 'pass' });
+    res.send({ status: true, message: 'User login successful!' });
   } else {
-    res.status(404).send({ message: 'fail' });
+    res.status(404).send({ status: false, message: 'User login failed!'});
   }
 };

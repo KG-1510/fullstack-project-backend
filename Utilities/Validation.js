@@ -1,24 +1,39 @@
-const validator = require('fastest-validator');
+const validator = require("fastest-validator");
 
 const checkRegister = (data) => {
   const v = new validator();
 
   const schema = {
     name: {
-      type: 'string',
+      type: "string",
       required: true,
       max: 256,
     },
     email: {
-      type: 'string',
+      type: "string",
       required: true,
       max: 256,
     },
     password: {
-      type: 'string',
+      type: "string",
       required: true,
       max: 1024,
       min: 6,
+    },
+    // image: {
+    //   type: "string",
+    // },
+    year: {
+      type: "string",
+      required: true,
+    },
+    branch: {
+      type: "string",
+      required: true,
+    },
+    spl: {
+      type: "string",
+      required: true,
     },
   };
 
@@ -32,12 +47,12 @@ const checkLogin = (data) => {
 
   const schema = {
     email: {
-      type: 'string',
+      type: "string",
       required: true,
       max: 256,
     },
     password: {
-      type: 'string',
+      type: "string",
       required: true,
       max: 1024,
       min: 6,

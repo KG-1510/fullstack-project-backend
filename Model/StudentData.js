@@ -18,17 +18,17 @@ const StudentData = new Schema({
   // image: {
   //   type: String,
   // },
-  // year: {
-  //   type: Number,
-  //   required: true,
-  // },
-  // branch: {
-  //   type: String,
-  //   required: true,
-  // },
-  // spl: {
-  //   type: String,
-  //   required: true,
-  // },
+  year: {
+    type: Number,
+    required: true,
+  },
+  branch: {
+    type: String,
+    required: true,
+  },
+  spl: {
+    type: String,
+    required: true,
+  },
 });
 module.exports = mongoose.model('StudentDB', StudentData);

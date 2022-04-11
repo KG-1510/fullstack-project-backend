@@ -38,8 +38,6 @@ exports.postRegister = async (req, res) => {
   });
   user.save().then(() => {
     console.log('saved');
-    res.send({ status: 'success', message: 'saved successfully' });
+    res.send({ status: 'success', message: 'User registered successfully!' });
   });
-
-  //console.log(user + 'is the user');
 };
