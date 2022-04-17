@@ -21,6 +21,6 @@ app.use("/", AuthRoutes);
 app.use("/userprofile", StudentRoutes);
 app.use("/transaction", TransactionRoutes);
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("✅ Server is started at port: 3001");
 });
