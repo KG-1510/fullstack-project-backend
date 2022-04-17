@@ -7,9 +7,9 @@ exports.postRegister = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   // const image = req.body.image;
-  // const year = req.body.year;
-  // const branch = req.body.branch;
-  // const spl = req.body.spl;
+  const year = req.body.year;
+  const branch = req.body.branch;
+  const spl = req.body.spl;
   const token = await GenerateJWT(password);
   const check = await Validate.checkRegister(req.body);
   if (check != true)
@@ -32,9 +32,9 @@ exports.postRegister = async (req, res) => {
     email,
     password: token,
     // image,
-    // year,
-    // branch,
-    // spl,
+    year,
+    branch,
+    spl,
   });
   user.save().then(() => {
     console.log('saved');
