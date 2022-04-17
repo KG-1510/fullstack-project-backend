@@ -6,7 +6,7 @@ const Fetch = async (req, res) => {
   const data = await StudentDB.findOne({ email: req.body.email });
   if (data != null) {
     console.log(data);
-    res.send({ status: true, message: "Retrieve Successful", data });
+    res.send({ status: true, message: "Retrieval Successful", data });
   } else {
     res.status(404).send({ status: false, message: "Retrieval failed" });
   }
