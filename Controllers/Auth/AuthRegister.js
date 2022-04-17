@@ -6,7 +6,7 @@ exports.postRegister = async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
-  // const image = req.body.image;
+  const image = req.body.image;
   const year = req.body.year;
   const branch = req.body.branch;
   const spl = req.body.spl;
@@ -31,13 +31,13 @@ exports.postRegister = async (req, res) => {
     name,
     email,
     password: token,
-    // image,
+    image,
     year,
     branch,
     spl,
   });
   user.save().then(() => {
-    console.log('saved');
-    res.send({ status: 'success', message: 'User registered successfully!' });
+    console.log('User Registered');
+    res.send({ status: true, message: 'User registered successfully!' });
   });
 };

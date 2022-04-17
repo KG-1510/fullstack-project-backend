@@ -20,9 +20,9 @@ const checkRegister = (data) => {
       max: 1024,
       min: 6,
     },
-    // image: {
-    //   type: "string",
-    // },
+    image: {
+      type: "string",
+    },
     year: {
       type: "string",
       required: true,

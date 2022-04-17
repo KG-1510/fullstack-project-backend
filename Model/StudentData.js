@@ -15,9 +15,9 @@ const StudentData = new Schema({
     type: String,
     required: true,
   },
-  // image: {
-  //   type: String,
-  // },
+  image: {
+    type: String,
+  },
   year: {
     type: Number,
     required: true,
