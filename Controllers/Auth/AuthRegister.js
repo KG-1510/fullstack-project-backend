@@ -25,7 +25,7 @@ exports.postRegister = async (req, res) => {
     if (emailExists)
       return res.send({ status: 400, message: 'Username already exists.' });
   } catch (err) {
-    res.status(400).send('some error while sending to db');
+    res.status(400).send('Some error while sending to DB');
   }
   user = new StudentDB({
     name,

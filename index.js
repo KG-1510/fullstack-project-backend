@@ -12,8 +12,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 connectDB();
+
 app.get("/", (req, res) => {
-  res.send("Home");
+  res.send("Home - Welcome to Feekart Backend");
 });
 
 //app.use('/transac', TransactionRoutes);

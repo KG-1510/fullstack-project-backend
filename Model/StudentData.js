@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
@@ -30,5 +30,8 @@ const StudentData = new Schema({
     type: String,
     required: true,
   },
+  paid_txn: {
+    type: [Number]
+  },
 });
-module.exports = mongoose.model('StudentDB', StudentData);
+module.exports = mongoose.model("StudentDB", StudentData);

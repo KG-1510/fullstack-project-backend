@@ -25,7 +25,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.5.0",
     "mongoose": "^6.2.10",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "razorpay": "^2.8.1",
+    "shortid": "^2.2.16"
   },
   "engine": {
     "node": ">=14.17.0",

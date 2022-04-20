@@ -1,33 +1,28 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const mongoose = require("mongoose");
 
-const sequelize = require('../Utilities/Database');
+const Schema = mongoose.Schema;
 
-const TransactionData = sequelize.define('transactiondata', {
-  tx_id: {
-    type: DataTypes.STRING,
-    required: true,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true,
+const TransactionData = new Schema({
+  rzp_id: {
+    type: String,
+    unique: true,
   },
-  tx_name: {
-    type: DataTypes.STRING,
+  txn_name: {
+    type: String,
     required: true,
   },
-  due_date: {
-    type: DataTypes.DATE,
+  dates: {
+    paid: { type: Date, default: Date.now },
   },
   amount: {
-    type: DataTypes.INTEGER,
+    type: Number,
     required: true,
   },
-
-  status: {
-    type: DataTypes.INTEGER,
+  email: {
+    type: String,
     required: true,
-  },
-  paid_on: {
-    type: DataTypes.DATE,
+    unique: true,
   },
 });
-module.exports = TransactionData;
+
+module.exports = mongoose.model("TransactionDB", TransactionData);
