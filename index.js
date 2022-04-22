@@ -5,6 +5,9 @@ const AuthRoutes = require("./routes/Auth");
 const connectDB = require("./Utilities/Database");
 const dotenv = require("dotenv");
 const StudentRoutes = require("./routes/StudentDetails");
+//---------------------
+const StudentUpdate = require("./routes/UpdateDetails");
+//---------------------
 const cors = require("cors");
 const { connect } = require("./routes/TransactionRoutes");
 dotenv.config({ path: "config.env" });
@@ -20,6 +23,9 @@ app.get("/", (req, res) => {
 //app.use('/transac', TransactionRoutes);
 app.use("/", AuthRoutes);
 app.use("/userprofile", StudentRoutes);
+// -------------------------------
+app.use("/updateprofile", StudentUpdate);
+//--------------------------------
 app.use("/transaction", TransactionRoutes);
 
 app.listen(process.env.PORT || 3001, () => {
