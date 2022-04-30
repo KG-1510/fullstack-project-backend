@@ -29,12 +29,6 @@ const TransactionOrderIdController = async (req, res, next) => {
   try {
     const response = await razorpay.orders.create(options);
     console.log(response);
-    transaction = new transactionDB({
-      order_id: response.id,
-      amount: amount,
-      txn_name: txn_name,
-      email: email,
-    });
 
     studentDB
       .findOneAndUpdate({ email }, { $push: { paid_txn: txn_id } })
@@ -42,9 +36,29 @@ const TransactionOrderIdController = async (req, res, next) => {
         console.log("Transaction added to student DB");
       });
 
-    transaction.save().then(() => {
-      console.log("Transaction Added to DB Successfully!");
+    let transaction;
+
+    transaction = new transactionDB({
+      receipt: response.receipt,
+      order_id: response.id,
+      amount: amount,
+      txn_name: txn_name,
+      email: email,
     });
+
+    // transaction.save().then(() => {
+    //   console.log("Transaction Added to DB Successfully!");
+    // });
+    transaction.save(function (err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+        console.log("Transaction Added to DB Successfully!");
+      }
+    });
+
+    console.log(transaction);
 
     res.json({
       status: true,

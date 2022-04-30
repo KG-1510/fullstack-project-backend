@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const TransactionData = new Schema({
-  rzp_id: {
+  receipt: {
     type: String,
     unique: true,
   },
