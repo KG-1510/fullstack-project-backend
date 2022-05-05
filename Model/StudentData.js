@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -10,6 +10,8 @@ const StudentData = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
+    lowercase: true,
   },
   password: {
     type: String,
@@ -31,7 +33,7 @@ const StudentData = new Schema({
     required: true,
   },
   paid_txn: {
-    type: [Number]
+    type: [Number],
   },
 });
-module.exports = mongoose.model("StudentDB", StudentData);
+module.exports = mongoose.model('StudentDB', StudentData);
