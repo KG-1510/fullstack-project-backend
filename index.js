@@ -1,5 +1,5 @@
 const express = require('express');
-//const mysql = require('mysql');
+const morgan = require('morgan');
 const TransactionRoutes = require('./routes/TransactionRoutes');
 const AuthRoutes = require('./routes/Auth');
 const connectDB = require('./Utilities/Database');
@@ -10,6 +10,7 @@ const { connect } = require('./routes/TransactionRoutes');
 dotenv.config({ path: 'config.env' });
 const app = express();
 app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
 connectDB();
 app.get('/', (req, res) => {
